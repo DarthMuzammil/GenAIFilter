@@ -1,0 +1,76 @@
+/* Base styles for AnimatedCard components */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .animated-card {
+    @apply bg-[#1a1a1a] rounded-xl overflow-hidden transition-all duration-300 w-full;
+  }
+  
+  .animated-card-header {
+    @apply p-6 cursor-pointer;
+  }
+  
+  .animated-card-title-container {
+    @apply flex items-center mb-3;
+  }
+  
+  .animated-card-icon {
+    @apply mr-3 text-white;
+  }
+  
+  .animated-card-title {
+    @apply text-xl font-semibold text-white;
+  }
+  
+  .animated-card-description {
+    @apply text-gray-400 mb-4;
+  }
+  
+  .animated-card-learn-more {
+    @apply text-gray-300 flex items-center text-sm transition-transform duration-300;
+  }
+  
+  .animated-card-content-wrapper {
+    @apply transition-all duration-300 ease-in-out overflow-hidden;
+  }
+  
+  .animated-card-content {
+    @apply p-6 pt-0 transition-opacity duration-300;
+  }
+  
+  /* Dark theme specific styles */
+  .dark-theme {
+    @apply bg-[#121212] text-white;
+  }
+  
+  /* Animation utilities */
+  .fade-in {
+    @apply opacity-0 animate-fadeIn;
+  }
+  
+  .scale-in {
+    @apply scale-95 animate-scaleIn;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+/* Add these to your tailwind.config.js extend.animation section */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-in-out forwards;
+}
